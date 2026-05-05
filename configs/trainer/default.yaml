@@ -1,0 +1,3 @@
+name: default
+subject_training_method: n_fold_cross_validation
+nfolds: 10

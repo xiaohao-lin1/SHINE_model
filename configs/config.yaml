@@ -1,0 +1,26 @@
+defaults:
+  - model: shine
+  - dataset: patients_rest_open_ica
+  - optimizer: adamw
+  - trainer: default
+  - _self_
+
+# Subject range to train on (subject IDs are 0-indexed).
+start: 0
+end: 1
+
+# Comma-separated CUDA device IDs (e.g. "0" or "0,1"). null = use whatever the env exposes.
+device: null
+
+model_name: ${model.name}
+subject_training_method: ${trainer.subject_training_method}
+dataset_name: ${dataset.name}
+nfolds: ${trainer.nfolds}
+
+# Optional run controls.
+seed: 1
+wait: 0                  # seconds to pause before launching (lets you sanity-check the folder name)
+folder_name: null        # if null, generated from model/method/dataset
+params_to_change_json: null
+profile: false           # wrap the training run in torch.profiler
+epochs: null             # null → use model_configs/SHINE.py's default

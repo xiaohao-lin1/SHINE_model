@@ -1,0 +1,12 @@
+name: SHINE
+
+# Manuscript-named hyperparameters (overrides the defaults in model_configs/SHINE.py).
+# Set any to null to fall back to the Configs class default.
+region_dim: 32              # d  (PDG GCN per-region embedding, Eq. 12)
+dropout_rate: 0.5
+window_size_samples: 32     # q  (FPA fusion-block avg-pool length)
+window_stride_ratio: 0.25
+variance_window_ms: 250     # w  (FPA learnable-variance window, milliseconds)
+variance_stride_ratio: 0.1
+alpha: 0.4                  # α  (PDG layer-wise decay rate, Eq. 11)
+num_gcn_layers: 2           # K  (PDG depth)
