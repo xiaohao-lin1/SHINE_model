@@ -35,6 +35,29 @@ conda env create -f environment.yml
 conda activate shine
 ```
 
+## Quick start
+
+```bash
+# default: 1 subject, open-vs-rest, SHINE with manuscript defaults
+python main.py
+
+# all 19 subjects, close-vs-rest task
+python main.py start=0 end=19 dataset=patients_rest_close_ica
+
+# override hyperparameters via Hydra
+python main.py model.alpha=0.3 model.num_gcn_layers=3 model.region_dim=64
+
+# pin a specific GPU
+python main.py device=0
+
+# short smoke test (1 epoch, 1 subject)
+python main.py epochs=1 end=1
+```
+
+`python main.py --cfg job` prints the resolved Hydra config without launching
+training.
+
+
 ## Data layout
 
 The training script expects each dataset at `../datasets/<dataset_name>/`
@@ -63,27 +86,6 @@ Datasets shipped with the configs:
 | `patients_rest_open_ica` | post-stroke, attempted hand opening vs. rest |
 | `patients_rest_close_ica` | post-stroke, attempted hand closing vs. rest |
 
-## Quick start
-
-```bash
-# default: 1 subject, open-vs-rest, SHINE with manuscript defaults
-python main.py
-
-# all 19 subjects, close-vs-rest task
-python main.py start=0 end=19 dataset=patients_rest_close_ica
-
-# override hyperparameters via Hydra
-python main.py model.alpha=0.3 model.num_gcn_layers=3 model.region_dim=64
-
-# pin a specific GPU
-python main.py device=0
-
-# short smoke test (1 epoch, 1 subject)
-python main.py epochs=1 end=1
-```
-
-`python main.py --cfg job` prints the resolved Hydra config without launching
-training.
 
 ## Output
 
