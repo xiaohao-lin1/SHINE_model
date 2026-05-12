@@ -130,7 +130,3 @@ environment.yml          # conda environment spec
   year    = {2026},
 }
 ```
-
-## License
-
-Released under the MIT License — see [`LICENSE`](LICENSE).
